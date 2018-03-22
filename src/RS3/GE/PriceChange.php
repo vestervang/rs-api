@@ -10,9 +10,9 @@ namespace vestervang\rsapi\RS3\GE;
 
 class PriceChange{
 
-	public $trend;
-	public $change;
-	public $price;
+	protected $trend;
+	protected $change;
+	protected $price;
 	
 	public function __construct($oldPrice, $newPrice){
 		
@@ -23,6 +23,18 @@ class PriceChange{
 		$this->price = ($difference < 0) ? (string)$difference : '+'. $difference;
 		$this->trend = ($newPrice > $oldPrice) ? 'Positive' : 'Negative' ;
 		$this->change = $percentageDifference;
+	}
+	
+	public function getTrend(){
+		return $this->trend;
+	}
+	
+	public function getChange(){
+		return $this->change;
+	}
+	
+	public function getPrice(){
+		return $this->price;
 	}
 	
 	

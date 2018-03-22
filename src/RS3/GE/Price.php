@@ -8,34 +8,41 @@
 
 namespace vestervang\rsApi\RS3\GE;
 
+use vestervang\Exceptions\WrongParameterTypeException;
+
 class Price{
 	
-	public $price = 0;
-	public $priceRounded = 0;
+	protected $price = 0;
+	protected $priceRounded = 0;
 	
-	public function __construct($price){
-		$this->price = $price;
-		$this->priceRounded = $this->shorten($price);
+	public function __construct($price = 0){
+		if(is_numeric($price)){
+			$this->price = $price;
+			$this->priceRounded = $this->shorten($price);
+		}else{
+			$this->price = $this->expand($price);
+			$this->priceRounded = $price;
+		}
 	}
 	
-	protected function expand($price){
-		
-		if(!is_string($price)){
-			throw new \Exception('Wrong parameter type!');
-		}
+	public function expand($price){
 		
 		$multiplier = $this->getMultiplier($price);
 		
-		$basePrice = (int)substr($price, 0, -1);
+		$basePrice = $price;
+		
+		if(!is_numeric(substr($price, -1))){
+			$basePrice = (float)substr($price, 0, -1);
+		}
 		
 		return $basePrice * $multiplier;
 	}
 	
-	protected function shorten($price){
+	public function shorten($price){
 		
-		if($price > 1000000){
+		if($price >= 1000000){
 			$type = 'm';
-		}elseif($price > 10000){
+		}elseif($price >= 1000){
 			$type = 'k';
 		}else{
 			return $price;
@@ -46,23 +53,33 @@ class Price{
 		return round($price / $divisor, 1) . $type;
 	}
 	
-	protected function getMultiplier($string){
+	public function getMultiplier($price){
 		
-		$multiplierLetter = substr($string, -1);
-		
-		if(is_numeric($multiplierLetter)){
-			throw new \Exception('No multiplier was found!');
-		}
+		$multiplierLetter = substr($price, -1);
 		
 		switch(strtolower($multiplierLetter)){
 			
 			case 'k':
-				return 1000;
+				$multiplier = 1000;
 				break;
 			case 'm':
-				return 1000000;
+				$multiplier = 1000000;
+				break;
+			default:
+				$multiplier = 1;
+				break;
 		}
 		
-		return null;
+		return $multiplier;
 	}
+	
+	public function getPrice(){
+		return $this->price;
+	}
+	
+	public function getRoundedPrice(){
+		return $this->priceRounded;
+	}
+	
+	
 }

@@ -16,42 +16,42 @@ class Item{
 	/**
 	 * @var string
 	 */
-	public $icon;
+	protected $icon;
 	
 	/**
 	 * @var string
 	 */
-	public $iconLarge;
+	protected $iconLarge;
 	
 	/**
 	 * @var int
 	 */
-	public $id;
+	protected $id;
 	
 	/**
 	 * @var string
 	 */
-	public $type;
+	protected $type;
 	
 	/**
 	 * @var string
 	 */
-	public $typeIcon;
+	protected $typeIcon;
 	
 	/**
 	 * @var string
 	 */
-	public $name;
+	protected $name;
 	
 	/**
 	 * @var \vestervang\rsApi\RS3\GE\Price
 	 */
-	public $price;
+	protected $price;
 	
 	/**
 	 * @var \vestervang\rsApi\RS3\GE\PriceHistory
 	 */
-	public $history;
+	protected $history;
 	
 	public function __construct($icon, $iconLarge, $id, $type, $typeIcon, $name, $price, $priceHistory){
 		
@@ -63,5 +63,37 @@ class Item{
 		$this->name = $name;
 		$this->price = new Price($price);
 		$this->history = new PriceHistory($priceHistory);
+	}
+	
+	public function getIcon(){
+		return $this->icon;
+	}
+	
+	public function getIconLarge(){
+		return $this->iconLarge;
+	}
+	
+	public function getId(){
+		return $this->id;
+	}
+	
+	public function getType(){
+		return $this->type;
+	}
+	
+	public function getTypeIcon(){
+		return $this->typeIcon;
+	}
+	
+	public function getName(){
+		return $this->name;
+	}
+	
+	public function getPrice(){
+		return $this->price;
+	}
+	
+	public function getHistory(){
+		return $this->history;
 	}
 }
