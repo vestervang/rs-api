@@ -9,11 +9,11 @@
 namespace vestervang\rsApi\RS3\GE;
 
 class PriceHistory{
-	public $today;
-	public $day30;
-	public $day60;
-	public $day180;
-	public $priceHistory;
+	protected $today;
+	protected $day30;
+	protected $day60;
+	protected $day180;
+	protected $priceHistory;
 	
 	public function __construct($priceHistory){
 		
@@ -57,6 +57,30 @@ class PriceHistory{
 			'daily' => new PriceChange($day2DailyPrice, $day1DailyPrice),
 			'average' => new PriceChange($day2AveragePrice, $day1AveragePrice)
 		];
+	}
+	
+	public function getToday(){
+		return $this->today;
+	}
+	
+	public function getDay30(){
+		return $this->day30;
+	}
+	
+	public function getDay60(){
+		return $this->day60;
+	}
+	
+	public function getDay180(){
+		return $this->day180;
+	}
+	
+	public function getDailyHistory(){
+		return $this->priceHistory['daily'];
+	}
+	
+	public function getAverageHistory(){
+		return $this->priceHistory['average'];
 	}
 	
 }
