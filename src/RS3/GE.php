@@ -39,6 +39,10 @@ class GE{
 			throw new RequestException();
 		}
 		
+		if($priceResponse->getStatusCode() != 200){
+			throw new RequestException();
+		}
+		
 		$decodedDetailsResponse = json_decode($detailsResponse->getBody()->getContents());
 		$decodedPriceResponse = json_decode($priceResponse->getBody()->getContents());
 		$priceHistory = (array)$decodedPriceResponse->daily;
