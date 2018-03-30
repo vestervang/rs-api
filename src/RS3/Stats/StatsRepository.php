@@ -71,7 +71,7 @@ class StatsRepository
 		
 	}
 	
-	private function getStatById($id){
+	public function getStatById($id){
 		
 		if(isset($this->stats[$id])){
 			return $this->stats[$id];
@@ -80,11 +80,11 @@ class StatsRepository
 		return null;
 	}
 	
-	private function getStatByName($name){
+	public function getStatByName($name){
 		
 		foreach($this->stats as $stat){
 			
-			if($stat->getSkill()->getName()){
+			if($stat->getSkill()->getName() == $name){
 				return $stat;
 			}
 		}
