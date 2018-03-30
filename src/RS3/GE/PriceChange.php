@@ -11,6 +11,7 @@ namespace vestervang\rsapi\RS3\GE;
 class PriceChange{
 
 	protected $trend;
+	protected $percentageChange;
 	protected $change;
 	protected $price;
 	
@@ -20,22 +21,25 @@ class PriceChange{
 		
 		$percentageDifference = ($difference / $oldPrice) * 100;
 		
-		$this->price = ($difference < 0) ? (string)$difference : '+'. $difference;
+		$this->change = $difference;
 		$this->trend = ($newPrice > $oldPrice) ? 'Positive' : 'Negative' ;
-		$this->change = $percentageDifference;
+		$this->percentageChange = $percentageDifference;
+		$this->price = $newPrice;
 	}
 	
 	public function getTrend(){
 		return $this->trend;
 	}
 	
-	public function getChange(){
-		return $this->change;
+	public function getPercentageChange(){
+		return $this->percentageChange;
 	}
 	
 	public function getPrice(){
 		return $this->price;
 	}
 	
-	
+	public function getChange(){
+		return $this->change;
+	}
 }
