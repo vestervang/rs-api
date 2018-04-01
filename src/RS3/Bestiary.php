@@ -84,7 +84,6 @@ class Bestiary{
 	
 	public function getBeastsByArea($area, $saveInRepo = true){
 		
-		$area = ucwords($area);
 		$area = str_replace(' ', '+', $area);
 		
 		$beastsData = $this->sendRequest($this->endpoints['area'], $area);
