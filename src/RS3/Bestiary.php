@@ -95,6 +95,10 @@ class Bestiary{
 		return $beastsData;
 	}
 	
+	public function getBeastRepo(){
+		return $this->beastRepo;
+	}
+	
 	protected function sendRequest($url, $param){
 		$response = null;
 		$contentLength = null;
