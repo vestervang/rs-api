@@ -21,6 +21,7 @@ class Bestiary{
 		'term' => 'http://services.runescape.com/m=itemdb_rs/bestiary/beastSearch.json?term=%s',
 		'level' => 'http://services.runescape.com/m=itemdb_rs/bestiary/levelGroup.json?identifier=%s',
 		'letter' => 'http://services.runescape.com/m=itemdb_rs/bestiary/bestiaryNames.json?letter=%s',
+		'area' => 'http://services.runescape.com/m=itemdb_rs/bestiary/areaBeasts.json?identifier=%s',
 	];
 	
 	protected $beastRepo;
@@ -78,6 +79,19 @@ class Bestiary{
 			$this->beastRepo->addBeasts(json_decode($beastsData));
 		}
 		
+		return $beastsData;
+	}
+	
+	public function getBeastsByArea($area, $saveInRepo = true){
+		
+		$area = ucwords($area);
+		$area = str_replace(' ', '+', $area);
+		
+		$beastsData = $this->sendRequest($this->endpoints['area'], $area);
+		
+		if($saveInRepo){
+			$this->beastRepo->addBeasts(json_decode($beastsData));
+		}
 		
 		return $beastsData;
 	}
