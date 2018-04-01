@@ -20,8 +20,7 @@ class Bestiary{
 		'id' => 'http://services.runescape.com/m=itemdb_rs/bestiary/beastData.json?beastid=%d',
 		'term' => 'http://services.runescape.com/m=itemdb_rs/bestiary/beastSearch.json?term=%s',
 		'level' => 'http://services.runescape.com/m=itemdb_rs/bestiary/levelGroup.json?identifier=%s',
-		'letter' => 'http://services.runescape.com/m=itemdb_rs/bestiary/bestiaryNames.json?letter=Y'
-		
+		'letter' => 'http://services.runescape.com/m=itemdb_rs/bestiary/bestiaryNames.json?letter=%s',
 	];
 	
 	protected $beastRepo;
