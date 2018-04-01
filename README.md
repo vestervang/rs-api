@@ -1,5 +1,7 @@
 # RS-api
 
+Core code is from [Burthorpe's runescape-api](https://github.com/Burthorpe/runescape-api)
+
 ## Installation
 
 #### Dependencies
@@ -14,6 +16,7 @@ composer require vestervang/rs-api
 
 * [Hiscore](#hiscore)
 * [GE](#ge)
+* [Bestiary](#bestiary)
 
 ### Hiscore
 
@@ -70,3 +73,63 @@ $item = $api->getItemById(4151);
 ```
 
 I calculate the percent difference myself to get a more accurate number instead of the +0.0% og -0.0% the api returns.
+
+### Bestiary
+In the bestiary api there is a option to save the result of an api call to a repo (The result will be saved to the repo as a Beast object).
+
+This can be turned off on a per call basis. Just send false as a second parameter and it won't save the data in the repo.
+
+#### Id
+```PHP
+require __DIR__.'/vendor/autoload.php';
+
+$bestiary = new \vestervang\rsApi\RS3\Bestiary();
+
+//This will save to the repo and returns the json
+$beast = $bestiary->getBeastById(49);
+
+//This call only returns the json
+$beast = $bestiary->getBeastById(49, false);
+```
+This will return the json for a monster with all details.
+
+#### Name
+```PHP
+require __DIR__.'/vendor/autoload.php';
+
+$bestiary = new \vestervang\rsApi\RS3\Bestiary();
+
+$beast = $bestiary->getBeastByName('cow');
+```
+This will return the json for a list of beasts with names and ids.
+
+#### Level
+```PHP
+require __DIR__.'/vendor/autoload.php';
+
+$bestiary = new \vestervang\rsApi\RS3\Bestiary();
+
+$beast = $bestiary->getBeastsByLevel('150-300');
+```
+This will return the json for a list of beasts with names and ids.
+
+#### Letter
+```PHP
+require __DIR__.'/vendor/autoload.php';
+
+$bestiary = new \vestervang\rsApi\RS3\Bestiary();
+
+$beast = $bestiary->getBeastsByLetter('y');
+```
+This will return the json for a list of beasts with names and ids.
+
+#### Area
+This function is case-sensetive 'The Abyss' and 'The abyss' will not return the same results.
+```PHP
+require __DIR__.'/vendor/autoload.php';
+
+$bestiary = new \vestervang\rsApi\RS3\Bestiary();
+
+$beast = $bestiary->getBeastsByArea('The Abyss');
+```
+This will return the json for a list of beasts with names and ids.
