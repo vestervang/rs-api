@@ -1,5 +1,6 @@
 # RS-api
 
+[![Build Status](https://img.shields.io/travis/vestervang/rs-api.svg?style=flat-square)](https://travis-ci.org/vestervang/rs-api)
 [![Latest Stable Version](https://poser.pugx.org/vestervang/rs-api/v/stable?format=flat-square)](https://packagist.org/packages/vestervang/rs-api)
 [![Latest Unstable Version](https://poser.pugx.org/vestervang/rs-api/v/unstable?format=flat-square)](https://packagist.org/packages/vestervang/rs-api)
 [![Total Downloads](https://poser.pugx.org/vestervang/rs-api/downloads?format=flat-square)](https://packagist.org/packages/vestervang/rs-api)
