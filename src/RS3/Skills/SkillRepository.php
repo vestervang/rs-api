@@ -49,21 +49,22 @@ class SkillRepository
 	/**
 	 * @param $identifier
 	 *
-	 * @return mixed|null
+	 * @return Skill|null
 	 */
 	public function getSkill($identifier){
 		
     	if(is_int($identifier)){
     		return $this->getById($identifier);
 	    }
-	    //The is_string returns the wrong result
-	    //if(is_string($$identifier)){
-    	//	return $this->getByName($identifier);
-	    //}
-		
+
 		return $this->getByName($identifier);
     }
-    
+
+    /**
+     * @param $id
+     *
+     * @return Skill|null
+     */
     public function getById($id){
 
         foreach($this->skills as $skill){
@@ -75,6 +76,11 @@ class SkillRepository
         return null;
     }
 
+    /**
+     * @param $name
+     *
+     * @return mixed|null
+     */
     public function getByName($name){
         
         $name = strtolower($name);
