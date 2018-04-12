@@ -32,6 +32,12 @@ class Hiscore
         ]);
     }
 
+    /**
+     * @param $rsn
+     *
+     * @return StatsRepository
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getStats($rsn)
     {
 
@@ -47,7 +53,10 @@ class Hiscore
 
         return new StatsRepository($response->getBody()->getContents());
     }
-    
+
+    /**
+     * @return SkillRepository
+     */
     public function getSkills()
     {
         return $this->skills;

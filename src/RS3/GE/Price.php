@@ -27,9 +27,13 @@ class Price
         }
     }
 
+    /**
+     * @param $price
+     *
+     * @return float|int
+     */
     public function expand($price)
     {
-
         $multiplier = $this->getMultiplier($price);
 
         $basePrice = $price;
@@ -41,9 +45,13 @@ class Price
         return $basePrice * $multiplier;
     }
 
+    /**
+     * @param $price
+     *
+     * @return string
+     */
     public function shorten($price)
     {
-
         if ($price >= 1000000) {
             $type = 'm';
         } elseif ($price >= 1000) {
@@ -57,9 +65,13 @@ class Price
         return round($price / $divisor, 1) . $type;
     }
 
+    /**
+     * @param $price
+     *
+     * @return int
+     */
     public function getMultiplier($price)
     {
-
         $multiplierLetter = substr($price, -1);
 
         switch (strtolower($multiplierLetter)) {
@@ -78,11 +90,17 @@ class Price
         return $multiplier;
     }
 
+    /**
+     * @return float|int
+     */
     public function getPrice()
     {
         return $this->price;
     }
 
+    /**
+     * @return int
+     */
     public function getRoundedPrice()
     {
         return $this->priceRounded;

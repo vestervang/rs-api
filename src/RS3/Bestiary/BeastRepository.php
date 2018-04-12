@@ -15,7 +15,6 @@ class BeastRepository
 
     public function __construct($feed = null)
     {
-
         $data = json_decode($feed);
 
         if (is_array($data)) {
@@ -27,9 +26,11 @@ class BeastRepository
         }
     }
 
+    /**
+     * @param $data
+     */
     public function addBeast($data)
     {
-
         $id             = @(isset($data->value) ? $data->value : $data->id);
         $magic          = property_exists($data, 'magic') ? $data->magic : null;
         $slayerCategory = property_exists($data, 'slayercat') ? $data->slayercat : null;
@@ -53,6 +54,9 @@ class BeastRepository
         $this->beasts[$id] = new Beast($id, $magic, $slayerCategory, $defence, $level, $description, $areas, $poisonous, $weakness, $size, $ranged, $attack, $member, $animationIds, $name, $xp, $lifepoints, $aggressive, $attackable);
     }
 
+    /**
+     * @param $data
+     */
     public function addBeasts($data)
     {
         foreach ($data as $beast) {
@@ -63,7 +67,7 @@ class BeastRepository
     /**
      * @param $identifier
      *
-     * @return mixed|null
+     * @return Beast|null
      */
     public function getBeast($identifier)
     {
@@ -75,11 +79,11 @@ class BeastRepository
         return $this->getByName($identifier);
     }
 
-    public function getBeasts()
-    {
-        return $this->beasts;
-    }
-
+    /**
+     * @param $id
+     *
+     * @return Beast|null
+     */
     public function getById($id)
     {
 
@@ -92,9 +96,13 @@ class BeastRepository
         return null;
     }
 
+    /**
+     * @param $name
+     *
+     * @return Beast|null
+     */
     public function getByName($name)
     {
-
         $name = strtolower($name);
 
         foreach ($this->beasts as $beast) {
@@ -105,6 +113,14 @@ class BeastRepository
         }
 
         return null;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBeasts()
+    {
+        return $this->beasts;
     }
 
     /**

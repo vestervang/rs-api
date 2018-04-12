@@ -47,7 +47,6 @@ class StatsRepository
      */
     public function getStat($identifier)
     {
-
         if (is_null($this->stats)) {
             //Throw exception maybe?
             return null;
@@ -71,14 +70,12 @@ class StatsRepository
 
     public function getCount()
     {
-
         return $this->statCount;
 
     }
 
     public function getStatById($id)
     {
-
         if (isset($this->stats[$id])) {
             return $this->stats[$id];
         }
@@ -88,7 +85,6 @@ class StatsRepository
 
     public function getStatByName($name)
     {
-
         foreach ($this->stats as $stat) {
 
             if ($stat->getSkill()->getName() == $name) {
@@ -98,5 +94,4 @@ class StatsRepository
 
         return null;
     }
-
 }

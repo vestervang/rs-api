@@ -10,7 +10,6 @@ namespace vestervang\rsApi\RS3;
 
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\Request;
 use vestervang\rsApi\RS3\GE\Item;
 
 class GE
@@ -32,7 +31,12 @@ class GE
         ]);
     }
 
-
+    /**
+     * @param $id
+     *
+     * @return Item
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getItemById($id)
     {
         $detailsResponse = $this->guzzle->request('GET', sprintf($this->endpoints['details'], $id));
@@ -63,10 +67,5 @@ class GE
         );
 
         return $item;
-    }
-
-    public function getItemByName($name)
-    {
-
     }
 }

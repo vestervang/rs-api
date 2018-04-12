@@ -9,10 +9,6 @@
 namespace vestervang\rsApi\RS3;
 
 use GuzzleHttp\Client as Guzzle;
-use GuzzleHttp\Exception\RequestException;
-use function GuzzleHttp\Psr7\_parse_request_uri;
-use GuzzleHttp\Psr7\Request;
-use vestervang\rsApi\RS3\Bestiary\Beast;
 use vestervang\rsApi\RS3\Bestiary\BeastRepository;
 
 class Bestiary
@@ -30,7 +26,6 @@ class Bestiary
 
     public function __construct()
     {
-
         $this->beastRepo = new BeastRepository();
 
         $this->guzzle = new Guzzle([
@@ -40,10 +35,17 @@ class Bestiary
         ]);
     }
 
+    /**
+     * @param      $id
+     * @param bool $saveInRepo
+     *
+     * @return int|string
+     * @throws \Exception
+     */
     public function getBeastById($id, $saveInRepo = true)
     {
-
         $beastData = $this->sendRequest($this->endpoints['id'], $id);
+
 
         if ($saveInRepo) {
             $this->beastRepo->addBeast(json_decode($beastData));
@@ -52,9 +54,15 @@ class Bestiary
         return $beastData;
     }
 
+    /**
+     * @param      $term
+     * @param bool $saveInRepo
+     *
+     * @return int|string
+     * @throws \Exception
+     */
     public function getBeastsByName($term, $saveInRepo = true)
     {
-
         $beastsData = $this->sendRequest($this->endpoints['term'], $term);
 
         if ($saveInRepo) {
@@ -64,9 +72,15 @@ class Bestiary
         return $beastsData;
     }
 
+    /**
+     * @param      $levelSpan
+     * @param bool $saveInRepo
+     *
+     * @return int|string
+     * @throws \Exception
+     */
     public function getBeastsByLevel($levelSpan, $saveInRepo = true)
     {
-
         $beastsData = $this->sendRequest($this->endpoints['level'], $levelSpan);
 
         if ($saveInRepo) {
@@ -76,9 +90,15 @@ class Bestiary
         return $beastsData;
     }
 
+    /**
+     * @param      $letter
+     * @param bool $saveInRepo
+     *
+     * @return int|string
+     * @throws \Exception
+     */
     public function getBeastsByLetter($letter, $saveInRepo = true)
     {
-
         $beastsData = $this->sendRequest($this->endpoints['letter'], strtoupper($letter));
 
         if ($saveInRepo) {
@@ -88,12 +108,23 @@ class Bestiary
         return $beastsData;
     }
 
+    /**
+     * @param      $area
+     * @param bool $saveInRepo
+     *
+     * @return int|string
+     * @throws \Exception
+     */
     public function getBeastsByArea($area, $saveInRepo = true)
     {
-
         $area = str_replace(' ', '+', $area);
 
-        $beastsData = $this->sendRequest($this->endpoints['area'], $area);
+        try {
+            $beastsData = $this->sendRequest($this->endpoints['area'], $area);
+        } catch (\Exception $e) {
+            echo 'fmkdls';
+        }
+
 
         if ($saveInRepo) {
             $this->beastRepo->addBeasts(json_decode($beastsData));
@@ -102,16 +133,26 @@ class Bestiary
         return $beastsData;
     }
 
+    /**
+     * @return BeastRepository
+     */
     public function getBeastRepo()
     {
         return $this->beastRepo;
     }
 
+    /**
+     * @param $url
+     * @param $param
+     *
+     * @return int|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Exception
+     */
     protected function sendRequest($url, $param)
     {
         $response      = null;
         $contentLength = null;
-        $beastsData    = 0;
 
         try {
             $response = $this->guzzle->request('GET', sprintf($url, $param));

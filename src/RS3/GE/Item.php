@@ -67,41 +67,65 @@ class Item
         $this->history   = new PriceHistory($priceHistory);
     }
 
+    /**
+     * @return string
+     */
     public function getIcon()
     {
         return $this->icon;
     }
 
+    /**
+     * @return string
+     */
     public function getIconLarge()
     {
         return $this->iconLarge;
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
     }
 
+    /**
+     * @return string
+     */
     public function getTypeIcon()
     {
         return $this->typeIcon;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @return \vestervang\rsApi\RS3\GE\Price
+     */
     public function getPrice()
     {
         return $this->price;
     }
 
+    /**
+     * @return \vestervang\rsApi\RS3\GE\PriceHistory
+     */
     public function getHistory()
     {
         return $this->history;

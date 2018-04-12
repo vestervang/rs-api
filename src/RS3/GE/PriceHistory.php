@@ -31,26 +31,44 @@ class PriceHistory
         $this->day180 = $this->getDay180Difference();
     }
 
+    /**
+     * @return array
+     */
     protected function getDay1Difference()
     {
         return $this->getDifference(1, 2);
     }
 
+    /**
+     * @return array
+     */
     protected function getDay30Difference()
     {
         return $this->getDifference(1, 30);
     }
 
+    /**
+     * @return array
+     */
     protected function getDay60Difference()
     {
         return $this->getDifference(1, 60);
     }
 
+    /**
+     * @return array
+     */
     protected function getDay180Difference()
     {
         return $this->getDifference(1, 180);
     }
 
+    /**
+     * @param $day1
+     * @param $day2
+     *
+     * @return array
+     */
     protected function getDifference($day1, $day2)
     {
 
@@ -66,31 +84,49 @@ class PriceHistory
         ];
     }
 
+    /**
+     * @return array
+     */
     public function getToday()
     {
         return $this->today;
     }
 
+    /**
+     * @return array
+     */
     public function getDay30()
     {
         return $this->day30;
     }
 
+    /**
+     * @return array
+     */
     public function getDay60()
     {
         return $this->day60;
     }
 
+    /**
+     * @return array
+     */
     public function getDay180()
     {
         return $this->day180;
     }
 
+    /**
+     * @return mixed
+     */
     public function getDailyHistory()
     {
         return $this->priceHistory['daily'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getAverageHistory()
     {
         return $this->priceHistory['average'];

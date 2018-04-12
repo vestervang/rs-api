@@ -16,7 +16,7 @@ class PriceChange
     protected $change;
     protected $price;
 
-    public function __construct($oldPrice, $newPrice)
+    public function __construct(int $oldPrice, int $newPrice)
     {
 
         $difference = $newPrice - $oldPrice;
@@ -29,21 +29,33 @@ class PriceChange
         $this->price            = $newPrice;
     }
 
+    /**
+     * @return string
+     */
     public function getTrend()
     {
         return $this->trend;
     }
 
+    /**
+     * @return float|int
+     */
     public function getPercentageChange()
     {
         return $this->percentageChange;
     }
 
+    /**
+     * @return int
+     */
     public function getPrice()
     {
         return $this->price;
     }
 
+    /**
+     * @return int
+     */
     public function getChange()
     {
         return $this->change;
