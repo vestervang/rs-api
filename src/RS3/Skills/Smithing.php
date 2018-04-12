@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Smithing extends Skill{
+final class Smithing extends Skill
+{
 
     /**
      * @var int

@@ -2,7 +2,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-abstract class Skill implements ISkill {
+abstract class Skill implements ISkill
+{
 
     /**
      * @var int

@@ -11,5 +11,5 @@ namespace vestervang\rsApi\RS3;
 
 class Common
 {
-	
+
 }

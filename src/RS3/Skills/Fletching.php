@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Fletching extends Skill{
+final class Fletching extends Skill
+{
 
     /**
      * @var int

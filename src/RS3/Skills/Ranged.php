@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Ranged extends Skill{
+final class Ranged extends Skill
+{
 
     /**
      * @var int

@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Slayer extends Skill{
+final class Slayer extends Skill
+{
 
     /**
      * @var int

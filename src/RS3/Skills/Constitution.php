@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Constitution extends Skill{
+final class Constitution extends Skill
+{
 
     /**
      * @var int

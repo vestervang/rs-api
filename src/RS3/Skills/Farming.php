@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Farming extends Skill{
+final class Farming extends Skill
+{
 
     /**
      * @var int

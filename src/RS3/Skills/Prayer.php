@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Prayer extends Skill{
+final class Prayer extends Skill
+{
 
     /**
      * @var int

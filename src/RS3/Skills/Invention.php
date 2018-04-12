@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Invention extends Skill{
+final class Invention extends Skill
+{
 
     /**
      * @var int

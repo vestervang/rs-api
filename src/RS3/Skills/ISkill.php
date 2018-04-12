@@ -2,7 +2,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-interface ISkill{
+interface ISkill
+{
 
     /**
      * @return int

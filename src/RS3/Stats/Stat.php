@@ -20,9 +20,9 @@ class Stat implements IStat
 
     public function __construct($skill, $level, $rank, $experience)
     {
-        $this->skill = $skill;
-        $this->level = $level;
-        $this->rank = $rank;
+        $this->skill      = $skill;
+        $this->level      = $level;
+        $this->rank       = $rank;
         $this->experience = $experience;
     }
 

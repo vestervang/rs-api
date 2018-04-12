@@ -6,41 +6,48 @@
  * Time: 1:02 PM
  */
 
-class SlayerTest extends \PHPUnit\Framework\TestCase {
-	
-	public function testGetId(){
-		$skill = new \vestervang\rsApi\RS3\Skills\Slayer();
-		
-		$this->assertSame(19, $skill->getId());
-	}
-	
-	public function testGetName(){
-		$skill = new \vestervang\rsApi\RS3\Skills\Slayer();
-		
-		$this->assertSame('slayer', $skill->getName());
-	}
-	
-	public function testGetMaximumExperience(){
-		$skill = new \vestervang\rsApi\RS3\Skills\Slayer();
-		
-		$this->assertEquals(200000000, $skill->getMaximumExperience());
-	}
-	
-	public function testGetMaximumLevel(){
-		$skill = new \vestervang\rsApi\RS3\Skills\Slayer();
-		
-		$this->assertSame(120, $skill->getMaximumLevel());
-	}
-	
-	public function testIsCombat(){
-		$skill = new \vestervang\rsApi\RS3\Skills\Slayer();
-		
-		$this->assertFalse($skill->isCombat());
-	}
-	
-	public function testIsMember(){
-		$skill = new \vestervang\rsApi\RS3\Skills\Slayer();
-		
-		$this->assertTrue($skill->isMembers());
-	}
+class SlayerTest extends \PHPUnit\Framework\TestCase
+{
+
+    public function testGetId()
+    {
+        $skill = new \vestervang\rsApi\RS3\Skills\Slayer();
+
+        $this->assertSame(19, $skill->getId());
+    }
+
+    public function testGetName()
+    {
+        $skill = new \vestervang\rsApi\RS3\Skills\Slayer();
+
+        $this->assertSame('slayer', $skill->getName());
+    }
+
+    public function testGetMaximumExperience()
+    {
+        $skill = new \vestervang\rsApi\RS3\Skills\Slayer();
+
+        $this->assertEquals(200000000, $skill->getMaximumExperience());
+    }
+
+    public function testGetMaximumLevel()
+    {
+        $skill = new \vestervang\rsApi\RS3\Skills\Slayer();
+
+        $this->assertSame(120, $skill->getMaximumLevel());
+    }
+
+    public function testIsCombat()
+    {
+        $skill = new \vestervang\rsApi\RS3\Skills\Slayer();
+
+        $this->assertFalse($skill->isCombat());
+    }
+
+    public function testIsMember()
+    {
+        $skill = new \vestervang\rsApi\RS3\Skills\Slayer();
+
+        $this->assertTrue($skill->isMembers());
+    }
 }

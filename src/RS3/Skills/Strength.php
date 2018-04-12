@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Strength extends Skill{
+final class Strength extends Skill
+{
 
     /**
      * @var int

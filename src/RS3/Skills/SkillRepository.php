@@ -13,7 +13,8 @@ class SkillRepository
 {
     protected $skills = [];
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->skills = [
             new Total(),
             new Attack(),
@@ -45,19 +46,20 @@ class SkillRepository
             new Invention(),
         ];
     }
-	
-	/**
-	 * @param $identifier
-	 *
-	 * @return Skill|null
-	 */
-	public function getSkill($identifier){
-		
-    	if(is_int($identifier)){
-    		return $this->getById($identifier);
-	    }
 
-		return $this->getByName($identifier);
+    /**
+     * @param $identifier
+     *
+     * @return Skill|null
+     */
+    public function getSkill($identifier)
+    {
+
+        if (is_int($identifier)) {
+            return $this->getById($identifier);
+        }
+
+        return $this->getByName($identifier);
     }
 
     /**
@@ -65,10 +67,11 @@ class SkillRepository
      *
      * @return Skill|null
      */
-    public function getById($id){
+    public function getById($id)
+    {
 
-        foreach($this->skills as $skill){
-            if($skill->getId() == $id){
+        foreach ($this->skills as $skill) {
+            if ($skill->getId() == $id) {
                 return $skill;
             }
         }
@@ -81,23 +84,25 @@ class SkillRepository
      *
      * @return mixed|null
      */
-    public function getByName($name){
-        
+    public function getByName($name)
+    {
+
         $name = strtolower($name);
 
-        foreach($this->skills as $skill){
-            if($skill->getName() == $name){
+        foreach ($this->skills as $skill) {
+            if ($skill->getName() == $name) {
                 return $skill;
             }
         }
 
         return null;
     }
-	
-	/**
-	 * @return int
-	 */
-	public function count(){
+
+    /**
+     * @return int
+     */
+    public function count()
+    {
         return count($this->skills);
     }
 }

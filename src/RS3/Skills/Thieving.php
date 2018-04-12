@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Thieving extends Skill{
+final class Thieving extends Skill
+{
 
     /**
      * @var int

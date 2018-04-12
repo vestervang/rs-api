@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Woodcutting extends Skill{
+final class Woodcutting extends Skill
+{
 
     /**
      * @var int

@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Firemaking extends Skill{
+final class Firemaking extends Skill
+{
 
     /**
      * @var int

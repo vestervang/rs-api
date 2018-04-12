@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Dungeoneering extends Skill{
+final class Dungeoneering extends Skill
+{
 
     /**
      * @var int

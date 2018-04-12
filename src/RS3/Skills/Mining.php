@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Mining extends Skill{
+final class Mining extends Skill
+{
 
     /**
      * @var int

@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Hunter extends Skill{
+final class Hunter extends Skill
+{
 
     /**
      * @var int

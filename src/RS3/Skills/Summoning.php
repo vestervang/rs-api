@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Summoning extends Skill{
+final class Summoning extends Skill
+{
 
     /**
      * @var int

@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Divination extends Skill{
+final class Divination extends Skill
+{
 
     /**
      * @var int

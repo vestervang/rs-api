@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Herblore extends Skill{
+final class Herblore extends Skill
+{
 
     /**
      * @var int

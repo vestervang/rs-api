@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Total extends Skill{
+final class Total extends Skill
+{
 
     /**
      * @var int

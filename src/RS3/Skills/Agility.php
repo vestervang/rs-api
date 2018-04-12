@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Agility extends Skill{
+final class Agility extends Skill
+{
 
     /**
      * @var int

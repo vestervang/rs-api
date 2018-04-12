@@ -14,44 +14,42 @@ use GuzzleHttp\Psr7\Request;
 use vestervang\rsApi\RS3\Skills\SkillRepository;
 use vestervang\rsApi\RS3\Stats\StatsRepository;
 
-class Hiscore{
+class Hiscore
+{
     protected $endpoint = 'http://services.runescape.com/m=hiscore/index_lite.ws?player=%s';
 
     protected $skills;
     protected $guzzle;
 
-
-
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->skills = new SkillRepository();
         $this->guzzle = new Guzzle([
-        	'headers' => [
-        		'User-Agent' => 'Rs api'
-	        ]
+            'headers' => [
+                'User-Agent' => 'Rs api'
+            ]
         ]);
     }
 
+    public function getStats($rsn)
+    {
 
-    public function getStats($rsn){
-        
-        $result = null;
-	    $response = null;
-	    
-        try{
-	        $response = $this->guzzle->request('GET', sprintf($this->endpoint, $rsn));
-	        
-        }catch(\Exception $e){
+        $result   = null;
+        $response = null;
+
+        try {
+            $response = $this->guzzle->request('GET', sprintf($this->endpoint, $rsn));
+
+        } catch (\Exception $e) {
             throw new \Exception('Pisse!');
         }
-	
-	    return new StatsRepository($response->getBody()->getContents());
-    }
 
-    public function getSkills(){
+        return new StatsRepository($response->getBody()->getContents());
+    }
+    
+    public function getSkills()
+    {
         return $this->skills;
     }
-
-
-
 }

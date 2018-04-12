@@ -8,7 +8,8 @@
 
 namespace vestervang\rsApi\RS3\Skills;
 
-final class Magic extends Skill{
+final class Magic extends Skill
+{
 
     /**
      * @var int
