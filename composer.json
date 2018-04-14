@@ -9,7 +9,7 @@
             "email": "vestervang-rs@hotmail.com"
         }
     ],
-    "type": "project",
+    "type": "library",
     "require": {
         "php": ">=7.1",
         "guzzlehttp/guzzle": "~6.0"
